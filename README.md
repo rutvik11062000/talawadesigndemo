@@ -1,16 +1,21 @@
-# talawadesigndemo
+# talawa-design-demo
 
-A new Flutter project.
+This is the UI demo for the talawa project.
+This only contaings UI / Widgets (No functionalities)
+<img src="https://files.slack.com/files-pri/TSLB0UMJ5-F01T94VSYRW/talawa-logo-dark-200x200.png"/>
+## Currently Made
 
-## Getting Started
+1. NewsFeed
+2. EventPage(only 1 page)
+3. Chat Screen
+4. Chat Page
+5. Org Change custom drawers
+6. Comment Sections
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+![This have all the GIF and video regarding the project](https://drive.google.com/drive/folders/1P2x9hfGmsNbzxk-RFR5DH9yegofgffzx?usp=sharing).
+APK is also attached with the repository.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
