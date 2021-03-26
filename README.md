@@ -2,7 +2,9 @@
 
 This is the UI demo for the talawa project.
 This only contaings UI / Widgets (No functionalities)
-<img src="https://files.slack.com/files-pri/TSLB0UMJ5-F01T94VSYRW/talawa-logo-dark-200x200.png"/>
+
+![image](https://user-images.githubusercontent.com/47498552/112670320-c5c95500-8e86-11eb-8b92-24a44245ff24.png)
+
 ## Currently Made
 
 1. NewsFeed
