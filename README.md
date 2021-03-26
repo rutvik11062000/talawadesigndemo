@@ -15,7 +15,7 @@ This only contaings UI / Widgets (No functionalities)
 6. Comment Sections
 
 
-![This have all the GIF and video regarding the project](https://drive.google.com/drive/folders/1P2x9hfGmsNbzxk-RFR5DH9yegofgffzx?usp=sharing).
+[This have all the GIF and video regarding the project](https://drive.google.com/drive/folders/1P2x9hfGmsNbzxk-RFR5DH9yegofgffzx?usp=sharing).
 APK is also attached with the repository.
 
 
