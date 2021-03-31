@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:talawadesigndemo/Pages/Event%20Page/IndividualEventPage.dart';
 import 'package:talawadesigndemo/Pages/HomePage.dart';
 
 void main() {
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
             displayColor: Colors.black),
       ),
       home: HomePage(),
+      // home: EventScreen(),
     );
   }
 }

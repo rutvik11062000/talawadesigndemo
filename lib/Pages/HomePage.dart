@@ -35,36 +35,45 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.backup_table),
-            label: 'Feed',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today_outlined),
-            label: 'Events',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add_to_photos),
-            label: 'Add Post',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.list_alt),
-            label: 'Members',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle_outlined),
-            label: 'School',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Theme.of(context).primaryColor,
-        unselectedItemColor: Colors.blueGrey,
-        onTap: _onItemTapped,
-      ),
+      backgroundColor: Theme.of(context).primaryColor,
       body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+        child: Container(
+          height: 700,
+          width: 350,
+          child: Scaffold(
+            bottomNavigationBar: BottomNavigationBar(
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.backup_table),
+                  label: 'Feed',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.calendar_today_outlined),
+                  label: 'Events',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.add_to_photos),
+                  label: 'Add Post',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.list_alt),
+                  label: 'Members',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.account_circle_outlined),
+                  label: 'School',
+                ),
+              ],
+              currentIndex: _selectedIndex,
+              selectedItemColor: Theme.of(context).primaryColor,
+              unselectedItemColor: Colors.blueGrey,
+              onTap: _onItemTapped,
+            ),
+            body: Center(
+              child: _widgetOptions.elementAt(_selectedIndex),
+            ),
+          ),
+        ),
       ),
     );
   }

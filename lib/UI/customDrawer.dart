@@ -2,15 +2,13 @@ import 'package:flutter/material.dart';
 
 Container CustomDrawer(BuildContext context) {
   return Container(
-    width: 80,
+    width: 60,
     child: Drawer(
       child: Column(
         children: [
           Expanded(
             flex: 2,
-            child: CircleAvatar(
-              radius: 28.0,
-            ),
+            child: CircleAvatar(),
           ),
           Divider(
             thickness: 3,
@@ -28,7 +26,6 @@ Container CustomDrawer(BuildContext context) {
                 },
                 itemBuilder: (BuildContext context, int index) {
                   return CircleAvatar(
-                    radius: 28.0,
                     backgroundColor: Colors.green[300],
                   );
                 },
@@ -110,7 +107,6 @@ Container CustomDrawer(BuildContext context) {
                 );
               },
               child: CircleAvatar(
-                radius: 28.0,
                 child: Center(child: Icon(Icons.add)),
               ),
             ),

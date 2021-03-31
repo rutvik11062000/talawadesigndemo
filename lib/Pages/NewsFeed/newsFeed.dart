@@ -15,7 +15,6 @@ class _NewsFeedState extends State<NewsFeed> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       key: _drawerKey,
       drawer: CustomDrawer(context),
       endDrawerEnableOpenDragGesture: false,
@@ -37,8 +36,9 @@ class _NewsFeedState extends State<NewsFeed> {
                   context, MaterialPageRoute(builder: (_) => ChatScreen())))
         ],
         title: Text(
-          'NEWS FEED',
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+          'News Feed',
+          style: TextStyle(
+              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16.0),
         ),
         backgroundColor: Colors.white,
         elevation: 0.0,
@@ -53,14 +53,16 @@ class _NewsFeedState extends State<NewsFeed> {
         },
         child: ListView.separated(
           physics: BouncingScrollPhysics(),
-          itemCount: 4,
+          itemCount: 5,
           separatorBuilder: (BuildContext context, int index) {
             return SizedBox(
               height: 5,
             );
           },
           itemBuilder: (BuildContext context, int index) {
-            return PostWidget();
+            return PostWidget(
+              showImage: index % 2 == 0 ? true : false,
+            );
           },
         ),
       ),

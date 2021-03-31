@@ -2,92 +2,85 @@ import 'package:flutter/material.dart';
 import 'package:talawadesigndemo/Pages/NewsFeed/commentsPage.dart';
 
 class PostWidget extends StatelessWidget {
+  final bool showImage;
   const PostWidget({
     Key key,
+    this.showImage,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        ListTile(
-          title: Text(
-            "User 1",
-            style: TextStyle(
-                color: Colors.black,
-                fontSize: 14.0,
-                fontWeight: FontWeight.w500),
+    return Card(
+      color: Colors.white,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ListTile(
+            title: Text(
+              "Rutvik Chandla",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 12.0,
+                  fontWeight: FontWeight.w600),
+            ),
+            leading: CircleAvatar(
+              backgroundColor: Colors.teal,
+            ),
+            trailing: IconButton(
+                icon: Icon(Icons.more_vert_rounded), onPressed: () {}),
+            subtitle: Text("2m",
+                style: TextStyle(
+                    color: Colors.blueGrey,
+                    fontSize: 10.0,
+                    fontWeight: FontWeight.w600)),
           ),
-          leading: CircleAvatar(
-            backgroundColor: Colors.black,
-          ),
-          trailing:
-              IconButton(icon: Icon(Icons.more_vert_rounded), onPressed: () {}),
-        ),
-        Container(
-          color: Colors.teal[200],
-          height: MediaQuery.of(context).size.width,
-        ),
-        ListTile(
-          leading: Container(
-            width: 150,
-            child: Row(
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                IconButton(
-                    icon: Icon(
-                      Icons.favorite_border,
-                      size: 32,
+                Text(
+                    "This will be the brief description about the event or the text which user want to display\n",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 12.0,
+                    )),
+                showImage == false
+                    ? Container(
+                        color: Colors.teal[200],
+                        height: 180,
+                      )
+                    : Text(
+                        "Lorem ipsum this will hhte extra text or the text that you can add when you dont include the photo or the video of the user to show lets get started. This is something like featue of a twitter.",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 12.0,
+                        )),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  children: [
+                    Icon(Icons.thumb_up_alt_outlined),
+                    SizedBox(
+                      width: 10,
                     ),
-                    onPressed: () {}),
-                IconButton(
-                    icon: Icon(
-                      Icons.messenger_outline,
-                      size: 32,
-                    ),
-                    onPressed: () {}),
+                    IconButton(
+                        icon: Icon(Icons.comment_outlined),
+                        onPressed: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => CommentScreen())))
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
               ],
             ),
           ),
-          title: Text(""),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 15.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text.rich(TextSpan(
-                  text: 'User 1',
-                  style: TextStyle(fontWeight: FontWeight.w600),
-                  children: <InlineSpan>[
-                    TextSpan(
-                      text: '  There will be the caption here',
-                      style: TextStyle(fontWeight: FontWeight.w400),
-                    )
-                  ])),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => CommentScreen()));
-                },
-                child: Text(
-                  "view all 89 comments",
-                  style: TextStyle(color: Colors.blueGrey),
-                ),
-              ),
-              Text.rich(TextSpan(
-                  text: 'User 89',
-                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 12.0),
-                  children: <InlineSpan>[
-                    TextSpan(
-                      text: '  The users comment',
-                      style: TextStyle(fontWeight: FontWeight.w400),
-                    )
-                  ])),
-            ],
-          ),
-        )
-      ],
+        ],
+      ),
     );
   }
 }
