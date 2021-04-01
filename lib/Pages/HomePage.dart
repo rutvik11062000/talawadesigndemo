@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:talawadesigndemo/Pages/Chat%20Screen/chatPage.dart';
+import 'package:talawadesigndemo/Pages/Chat%20Screen/chatScreen.dart';
 import 'package:talawadesigndemo/Pages/Event%20Page/eventPage.dart';
 import 'package:talawadesigndemo/Pages/NewsFeed/newsFeed.dart';
 
@@ -19,14 +21,10 @@ class _HomePageState extends State<HomePage> {
   }
 
   static const List<Widget> _widgetOptions = <Widget>[
-    NewsFeed(),
+    ExplorePage(),
     EventPage(),
-    Text(
-      'Index 2: School',
-    ),
-    Text(
-      'Index 1: Business',
-    ),
+    NewsFeed(),
+    ChatScreen(),
     Text(
       'Index 2: Profile',
     ),
@@ -44,20 +42,20 @@ class _HomePageState extends State<HomePage> {
             bottomNavigationBar: BottomNavigationBar(
               items: const <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
+                  icon: Icon(Icons.explore),
+                  label: 'Explore',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.calendar_today_outlined),
+                  label: 'events',
+                ),
+                BottomNavigationBarItem(
                   icon: Icon(Icons.backup_table),
                   label: 'Feed',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.calendar_today_outlined),
-                  label: 'Events',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.add_to_photos),
-                  label: 'Add Post',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.list_alt),
-                  label: 'Members',
+                  icon: Icon(Icons.chat_bubble_outline),
+                  label: 'Chats',
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.account_circle_outlined),

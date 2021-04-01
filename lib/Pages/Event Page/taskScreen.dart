@@ -6,16 +6,11 @@ class TaksScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "Tasks",
-            style: TextStyle(letterSpacing: 1.2),
-          ),
-          actions: [Icon(Icons.settings), Icon(Icons.more_vert_rounded)],
-          elevation: 0.0,
-        ),
-        backgroundColor: Colors.deepPurple,
-        body: Padding(
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {},
+      ),
+      body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListView(
             shrinkWrap: true,
@@ -56,10 +51,8 @@ class TaksScreen extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.download_sharp,
-                      color: Colors.white,
                     ),
-                    Text("Complete",
-                        style: TextStyle(fontSize: 14.0, color: Colors.white))
+                    Text("Complete", style: TextStyle(fontSize: 14.0))
                   ],
                 ),
               ),
@@ -75,7 +68,7 @@ class TaksScreen extends StatelessWidget {
                   return ListTile(
                     leading: CircleAvatar(
                       radius: 15.0,
-                      backgroundColor: Colors.deepPurple,
+                      backgroundColor: Colors.teal,
                       child: Icon(
                         Icons.check_circle,
                         size: 30,
@@ -93,7 +86,7 @@ class TaksScreen extends StatelessWidget {
                 },
               ),
             ],
-          ),
-        ));
+          )),
+    );
   }
 }

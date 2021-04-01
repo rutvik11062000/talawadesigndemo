@@ -12,64 +12,54 @@ class ChatPage extends StatelessWidget {
     ScrollController _scrollController = new ScrollController();
 
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
+      backgroundColor: Colors.white,
       body: Center(
         child: Container(
           height: 700,
           width: 350,
           child: Scaffold(
-              backgroundColor: Colors.grey[200],
               appBar: AppBar(
                 leadingWidth: 50.0,
-                automaticallyImplyLeading: false,
-                leading: leading != null
-                    ? IconButton(
-                        icon: Icon(
-                          Icons.arrow_back,
-                          color: Colors.black,
-                        ),
-                        onPressed: () => Navigator.pop(context),
-                      )
-                    : Text(""),
                 title: Row(
                   // contentPadding: EdgeInsets.all(0),
                   children: [
                     CircleAvatar(
-                      backgroundColor: Colors.green,
+                      backgroundColor: Colors.white,
                     ),
                     SizedBox(width: 10.0),
                     Text(
                       title,
                       style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14.0),
+                          fontWeight: FontWeight.bold, fontSize: 14.0),
                     ),
                   ],
                 ),
-                backgroundColor: Colors.white,
                 elevation: 0.0,
               ),
               body: NotificationListener<OverscrollIndicatorNotification>(
                 onNotification: (overscroll) {
                   overscroll.disallowGlow();
                 },
-                child: ListView.separated(
-                  reverse: true,
-                  controller: _scrollController,
-                  physics: BouncingScrollPhysics(),
-                  itemCount: 20,
-                  separatorBuilder: (BuildContext context, int index) {
-                    return SizedBox(
-                      height: 0.0,
-                    );
-                  },
-                  itemBuilder: (BuildContext context, int index) {
-                    return ChatMessage(
-                      index: index,
-                      title: title,
-                    );
-                  },
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                      left: 8.0, right: 8.0, bottom: 60.0),
+                  child: ListView.separated(
+                    reverse: true,
+                    controller: _scrollController,
+                    physics: BouncingScrollPhysics(),
+                    itemCount: 20,
+                    separatorBuilder: (BuildContext context, int index) {
+                      return SizedBox(
+                        height: 3.0,
+                      );
+                    },
+                    itemBuilder: (BuildContext context, int index) {
+                      return ChatMessage(
+                        index: index,
+                        title: title,
+                      );
+                    },
+                  ),
                 ),
               ),
               bottomSheet: Container(
@@ -102,11 +92,8 @@ class ChatPage extends StatelessWidget {
                           },
                           textAlign: TextAlign.start,
                           decoration: InputDecoration(
-                            hintText: "Write a comment .. ",
+                            hintText: "Type a message .. ",
                             contentPadding: EdgeInsets.all(15.0),
-                            hintStyle: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                color: Colors.blueGrey),
                             focusColor: Colors.black,
                             border: InputBorder.none,
                           ),
@@ -145,44 +132,75 @@ class ChatMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
-      child: Container(
-        decoration: BoxDecoration(
-          color: index % 2 == 1 ? Colors.greenAccent[100] : Colors.white,
-          borderRadius: BorderRadius.only(
-              topLeft:
-                  index % 2 == 0 ? Radius.circular(0.0) : Radius.circular(15.0),
-              topRight: Radius.circular(15.0),
-              bottomLeft: Radius.circular(15.0),
-              bottomRight:
-                  index % 2 == 1 ? Radius.circular(0.0) : Radius.circular(0.0)),
-        ),
-        padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-        child: Column(
-          crossAxisAlignment: index % 2 == 0
-              ? CrossAxisAlignment.start
-              : CrossAxisAlignment.end,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              index % 2 == 0 ? title : "User 1",
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 12,
-                  color: index % 2 == 0
-                      ? Theme.of(context).primaryColor
-                      : Colors.green),
-            ),
-            Text(
-              index % 2 == 0
-                  ? "This will be the text that user will write :)"
-                  : "This will be the long message that a reply person would reply but it doest make any sense",
-              style: TextStyle(fontSize: 12),
-            ),
-          ],
-        ),
-      ),
+    // return Padding(
+    //   padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
+    //   child: Container(
+    //     decoration: BoxDecoration(
+    //       color: index % 2 == 1 ? Colors.greenAccent[100] : Colors.white,
+    //       borderRadius: BorderRadius.only(
+    //           topLeft:
+    //               index % 2 == 0 ? Radius.circular(0.0) : Radius.circular(15.0),
+    //           topRight: Radius.circular(15.0),
+    //           bottomLeft: Radius.circular(15.0),
+    //           bottomRight:
+    //               index % 2 == 1 ? Radius.circular(0.0) : Radius.circular(0.0)),
+    //     ),
+    //     padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+    //     child: Column(
+    //       crossAxisAlignment: index % 2 == 0
+    //           ? CrossAxisAlignment.start
+    //           : CrossAxisAlignment.end,
+    //       mainAxisSize: MainAxisSize.min,
+    //       children: [
+    //         Text(
+    //           index % 2 == 0 ? title : "User 1",
+    //           style: TextStyle(
+    //               fontWeight: FontWeight.bold,
+    //               fontSize: 12,
+    //               color: index % 2 == 0
+    //                   ? Theme.of(context).primaryColor
+    //                   : Colors.green),
+    //         ),
+    //         Text(
+    //           index % 2 == 0
+    //               ? "This will be the text that user will write :)"
+    //               : "This will be the long message that a reply person would reply but it doest make any sense",
+    //           style: TextStyle(fontSize: 12),
+    //         ),
+    //       ],
+    //     ),
+    //   ),
+    // );
+    //
+    return Row(
+      mainAxisAlignment:
+          index % 2 == 1 ? MainAxisAlignment.start : MainAxisAlignment.end,
+      children: [
+        index % 2 == 1
+            ? Container(
+                padding: EdgeInsets.all(10.0),
+                decoration: BoxDecoration(
+                  color: Colors.transparent.withOpacity(0.05),
+                  borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                ),
+                child: Text("This is my first message"),
+              )
+            : Padding(
+                padding: EdgeInsets.only(left: 40.0),
+                child: Container(
+                  padding: EdgeInsets.all(10.0),
+                  decoration: BoxDecoration(
+                    color: Colors.teal.withOpacity(0.15),
+                    borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                  ),
+                  child: Column(
+                    children: [
+                      Text("This is would be my long reply message"),
+                    ],
+                  ),
+                ),
+              ),
+      ],
     );
   }
 }

@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:talawadesigndemo/UI/wrapperUI.dart';
 
-class EventDescription extends StatelessWidget {
+class EventDescription extends StatefulWidget {
   const EventDescription({Key key}) : super(key: key);
 
+  @override
+  _EventDescriptionState createState() => _EventDescriptionState();
+}
+
+class _EventDescriptionState extends State<EventDescription> {
+  bool subscribed = false;
   @override
   Widget build(BuildContext context) {
     return WrapperScaffold(
@@ -12,7 +18,7 @@ class EventDescription extends StatelessWidget {
           slivers: <Widget>[
             SliverAppBar(
               collapsedHeight: 100,
-              expandedHeight: 220,
+              expandedHeight: 250,
               flexibleSpace: FlexibleSpaceBar(
                 title: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -60,9 +66,29 @@ class EventDescription extends StatelessWidget {
               child: Container(
                 height: 80,
                 child: TextButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      final snackBar = SnackBar(
+                        content: Text(
+                            'Your are Subscribed to the event!! Go to event page.'),
+                        action: SnackBarAction(
+                          label: 'Undo',
+                          onPressed: () {
+                            // Some code to undo the change.
+                          },
+                        ),
+                      );
+
+                      // Find the ScaffoldMessenger in the widget tree
+                      // and use it to show a SnackBar.
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      setState(() {
+                        subscribed = true;
+                      });
+                    },
                     icon: Icon(Icons.subscriptions),
-                    label: Text("Enter Now!!")),
+                    label: !subscribed
+                        ? Text("Enter Now!!")
+                        : Text("Subscribed!!")),
               ),
             ),
             SliverPadding(

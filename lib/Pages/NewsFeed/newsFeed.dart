@@ -27,13 +27,13 @@ class _NewsFeedState extends State<NewsFeed> {
           onPressed: () => _drawerKey.currentState.openDrawer(),
         ),
         actions: [
-          IconButton(
-              icon: Icon(
-                Icons.chat_rounded,
-                color: Colors.blueGrey,
-              ),
-              onPressed: () => Navigator.push(
-                  context, MaterialPageRoute(builder: (_) => ChatScreen())))
+          Padding(
+            padding: const EdgeInsets.only(right: 12.0),
+            child: Icon(
+              Icons.settings,
+              color: Colors.blueGrey,
+            ),
+          ),
         ],
         title: Text(
           'News Feed',
